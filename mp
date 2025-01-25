@@ -2,7 +2,7 @@
     ["foxgoodboy123"] = true,
     ["emfankia123"] = true,
     ["seven09812"] = true,
-    ["dobermanminh"] = true
+    ["phandung3614"] = true
 }
 local currentUserName = game.Players.LocalPlayer.Name
 
