@@ -3,15 +3,14 @@ local allowedUsers = {
     ["foxgoodboy123"] = true,
     ["emfankia123"] = true,
     ["seven09812"] = true,
-    ["phandung3614"] = true,
-    ["tolavy_06"] = true
+    ["phandung3614"] = true
 }
 local currentUserName = game.Players.LocalPlayer.Name
 
 if not allowedUsers[currentUserName] then
     game.StarterGui:SetCore("SendNotification", {
-        Title = "?";
-        Text = "có đéo đâu mà dùng thg l ngu.";
+        Title = "ib dis _mp.2411";
+        Text = "bỏ tiền ra ib dis bố mà mua đi thg ngu ơi.";
         Duration = 5;
     })
     return
