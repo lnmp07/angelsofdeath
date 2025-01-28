@@ -9,8 +9,8 @@ local currentUserName = game.Players.LocalPlayer.Name
 
 if not allowedUsers[currentUserName] then
     game.StarterGui:SetCore("SendNotification", {
-        Title = "ib dis _mp.2411";
-        Text = "bỏ tiền ra ib dis bố mà mua đi thg ngu ơi.";
+        Title = "???";
+        Text = "thg ngu ơi không trình mà còn đòi dùng hack của cha à.";
         Duration = 5;
     })
     return
@@ -38,7 +38,7 @@ local library = loadstring(game.HttpGet(game, "https://raw.githubusercontent.com
                     v.Handle.Massless = true
                     v.Handle.Transparency = 1
                     a.Adornee = v.Handle
-                    v.Handle.Size = Vector3.new(15, 20, 2)
+                    v.Handle.Size = Vector3.new(9, 9, 9)
                     local selectionBox = Instance.new("SelectionBox",v.Handle)
                     selectionBox.Adornee = v.Handle
                     selectionBox.Color3 = Color3.new(0, 0.313725, 0.47451)
