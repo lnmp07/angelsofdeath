@@ -1,16 +1,15 @@
-```lua
 return {
+    ["foxgoodboy123"] = true,
+    ["emfankia123"] = true,
+    ["lnmp07"] = true,
+    ["anhtthuc03"] = true,
+    ["phandung3614"] = true,
+    ["seven09812"] = true,
+    ["gao12345644"] = true,
+    ["ADMIN_VN"] = true,
+    ["chongyeunldd"] = true,
     [""] = true,
     [""] = true,
     [""] = true,
     [""] = true,
-    [""] = true,
-    [""] = true,
-    [""] = true,
-    [""] = true,
-    [""] = true,
-    [""] = true,
-    [""] = true,
-    [""] = true,
-    [""] = true,
-}```
+}
