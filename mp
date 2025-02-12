@@ -24,37 +24,81 @@ if not allowedUsers[currentUserName] then
     })
     return
 end
+local hitboxEnabled = false
+local hitboxSize = Vector3.new(50, 50, 1)
+local originalSizes = {}
 local library = loadstring(game.HttpGet(game, "https://raw.githubusercontent.com/VNT-UNIVERSAL/MyCode/main/UILib"))()
     local w1 = library:Window("Angels of Death")
 
-    w1:Button(
-        "HitBox",
-        function()
-            local sound = Instance.new("Sound")
-            sound.SoundId = "rbxassetid://413861777"
-            sound.Parent = game:GetService("SoundService")
-            sound:Play()
-        
-            wait()
-            game.StarterGui:SetCore("SendNotification", {
-                Title = "Need tool"; -- the title (ofc)
-                Text = "If you dont have weapon then get one and use this command"; -- what the text says (ofc)
-                Duration = 5; -- how long the notification should in secounds
-            })
-            for i,v in pairs(game:GetService'Players'.LocalPlayer.Character:GetChildren()) do
-                if v:isA("Tool") then
-                    local a = Instance.new("SelectionBox",v.Handle)
-                    v.Handle.Massless = true
-                    v.Handle.Transparency = 1
-                    a.Adornee = v.Handle
-                    v.Handle.Size = Vector3.new(15, 10, 2)
-                    local selectionBox = Instance.new("SelectionBox",v.Handle)
-                    selectionBox.Adornee = v.Handle
-                    selectionBox.Color3 = Color3.new(0, 0.313725, 0.47451)
+    w1:Slider("Hitbox X", "X", 1, 100, function(value)
+    hitboxSize = Vector3.new(value, hitboxSize.Y, hitboxSize.Z)
+end)
+
+w1:Slider("Hitbox Y", "Y", 1, 100, function(value)
+    hitboxSize = Vector3.new(hitboxSize.X, value, hitboxSize.Z)
+end)
+
+w1:Slider("Hitbox Z", "Z", 1, 100, function(value)
+    hitboxSize = Vector3.new(hitboxSize.X, hitboxSize.Y, value)
+end)
+
+-- Button bật hitbox
+w1:Button("Bật Hitbox", function()
+    hitboxEnabled = true -- Đặt trạng thái bật hitbox
+
+    local player = game:GetService("Players").LocalPlayer
+    if not player or not player.Character then return end
+
+    for _, tool in pairs(player.Character:GetChildren()) do
+        if tool:IsA("Tool") and tool:FindFirstChild("Handle") then
+            local handle = tool.Handle
+
+            -- Lưu kích thước gốc nếu chưa lưu
+            if not originalSizes[tool] then
+                originalSizes[tool] = handle.Size
+            end
+
+            -- Cập nhật kích thước hitbox
+            handle.Size = hitboxSize
+            handle.Massless = true
+            handle.Transparency = 0.5 -- Đảm bảo nhìn thấy hitbox
+
+            -- Tạo viền xanh cho hitbox
+            local selectionBox = Instance.new("SelectionBox")
+            selectionBox.Adornee = handle
+            selectionBox.Color3 = Color3.new(0, 0.313725, 0.47451)
+            selectionBox.LineThickness = 0.05
+            selectionBox.Parent = handle
+        end
+    end
+end)
+
+-- Button tắt hitbox
+w1:Button("Tắt Hitbox", function()
+    hitboxEnabled = false -- Đặt trạng thái tắt hitbox
+
+    local player = game:GetService("Players").LocalPlayer
+    if not player or not player.Character then return end
+
+    for _, tool in pairs(player.Character:GetChildren()) do
+        if tool:IsA("Tool") and tool:FindFirstChild("Handle") then
+            local handle = tool.Handle
+
+            -- Khôi phục kích thước gốc
+            if originalSizes[tool] then
+                handle.Size = originalSizes[tool]
+                originalSizes[tool] = nil -- Xóa dữ liệu sau khi khôi phục
+            end
+
+            -- Xóa viền xanh
+            for _, obj in pairs(handle:GetChildren()) do
+                if obj:IsA("SelectionBox") then
+                    obj:Destroy()
                 end
             end
         end
-    )    
+    end
+end)
     function Music()
         local sound = Instance.new("Sound")
         sound.SoundId = "rbxassetid://413861777"
