@@ -9,7 +9,7 @@ if playerScripts then
     end
 end
 local allowedUsers = {
-    ["foxgoodboy123"] = true,
+    ["toilaboiiz"] = true,
     ["emfankia123"] = true,
     ["seven09812"] = true,
     ["anhropdepOO"] = true,
