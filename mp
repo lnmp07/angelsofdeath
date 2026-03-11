@@ -10,10 +10,10 @@ if playerScripts then
 end
 local allowedUsers = {
     ["toilaboiiz"] = true,
-    ["emfankia123"] = true,
+    ["npham05"] = true,
     ["seven09812"] = true,
-    ["anhropdepOO"] = true,
-    ["dobermanminh"] = true,
+    ["im_tannxd"] = true,
+    ["Nguyenthangdzz"] = true,
     ["LeoMCRB1333"] = true
 
 }
