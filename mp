@@ -12,7 +12,7 @@ local allowedUsers = {
     ["toilaboiiz"] = true,
     ["npham05"] = true,
     ["seven09812"] = true,
-    ["im_tannxd"] = true,
+    ["ZynnxSoul"] = true,
     ["Nguyenthangdzz"] = true,
     ["LeoMCRB1333"] = true
 
